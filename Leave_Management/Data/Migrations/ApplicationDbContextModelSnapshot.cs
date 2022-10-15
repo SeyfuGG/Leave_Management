@@ -90,7 +90,7 @@ namespace Leave_Management.Data.Migrations
                 });
 
             modelBuilder.Entity("Leave_Managment.Data.LeaveType", b =>
-            {
+                {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
