@@ -4,6 +4,7 @@ namespace Leave_Management.Models
 {
     public class EmployeeVM
     {
+        //Models are an abstract of DB
         public int Id { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
