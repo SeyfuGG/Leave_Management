@@ -35,6 +35,10 @@ namespace Leave_Management.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+
+            [DataType(DataType.Text)]
+            [Display(Name = "Gender")]
+            public string Gender { get; set; }
         }
 
         private async Task LoadAsync(IdentityUser user)

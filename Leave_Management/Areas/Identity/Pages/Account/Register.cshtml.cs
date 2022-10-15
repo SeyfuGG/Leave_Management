@@ -24,6 +24,7 @@ namespace Leave_Management.Areas.Identity.Pages.Account
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private object userManager;
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
@@ -61,6 +62,8 @@ namespace Leave_Management.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            //we can add the additional input forms on the register page
             [Required]
             [DataType(DataType.Text)]
             [Display(Name = "First Name")]
@@ -90,6 +93,8 @@ namespace Leave_Management.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
+
+                    _userManager.AddToRoleAsync(user, "Employee").Wait();
                     _logger.LogInformation("User created a new account with password.");
 
                     //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
