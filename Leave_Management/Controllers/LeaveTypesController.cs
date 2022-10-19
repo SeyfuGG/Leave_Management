@@ -2,6 +2,7 @@
 using Leave_Management.Contracts;
 using Leave_Management.Data;
 using Leave_Management.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,9 +11,11 @@ using System.Linq;
 
 namespace Leave_Management.Controllers
 {
+
+    [Authorize (Roles = "Administrator")]  // check if the user has access to leavetype controller 
     public class LeaveTypesController : Controller
 
-        {
+    {
         // Start Dependency Injection
         private readonly ILeaveTypeRepository _repo;
         private readonly IMapper _mapper;
@@ -23,7 +26,7 @@ namespace Leave_Management.Controllers
             _mapper = mapper;
         }
         //END Dependency Injection
-
+        
         // GET: LeaveTypesController
         public ActionResult Index()
         {
