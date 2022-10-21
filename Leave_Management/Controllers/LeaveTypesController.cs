@@ -14,8 +14,7 @@ namespace Leave_Management.Controllers
 
     [Authorize (Roles = "Administrator")]  
     // check if the user has access to leavetype controller 
-    //The access rules and authoriszation should be apply here to control the roles of users.
-    public class LeaveTypesController : Controller
+        public class LeaveTypesController : Controller
 
     {
         // Start Dependency Injection
