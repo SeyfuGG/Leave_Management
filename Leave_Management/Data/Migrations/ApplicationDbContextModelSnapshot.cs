@@ -38,6 +38,9 @@ namespace Leave_Management.Data.Migrations
                     b.Property<int>("NumberOfDays")
                         .HasColumnType("int");
 
+                    b.Property<int>("Period")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("EmployeeId");
@@ -89,7 +92,7 @@ namespace Leave_Management.Data.Migrations
                     b.ToTable("LeaveHistories");
                 });
 
-            modelBuilder.Entity("Leave_Managment.Data.LeaveType", b =>
+            modelBuilder.Entity("Leave_Management.Data.LeaveType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -98,6 +101,9 @@ namespace Leave_Management.Data.Migrations
 
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("DefaultDay")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -364,7 +370,7 @@ namespace Leave_Management.Data.Migrations
                         .WithMany()
                         .HasForeignKey("EmployeeId");
 
-                    b.HasOne("Leave_Managment.Data.LeaveType", "LeaveType")
+                    b.HasOne("Leave_Management.Data.LeaveType", "LeaveType")
                         .WithMany()
                         .HasForeignKey("LeaveTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
