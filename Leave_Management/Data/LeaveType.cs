@@ -10,7 +10,7 @@ namespace Leave_Management.Data
         [Required]
         public string Name { get; set; }
 
-        public int DefaultDay { get; set; }
+        public int DefaultDays { get; set; }
         public DateTime DateCreated { get; set; }
 
         //public static explicit operator LeaveType(LeaveType v)
